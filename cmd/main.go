@@ -28,7 +28,6 @@ func main() {
 		log.Fatalf("failed to init config: %v", err)
 	}
 	cfg = configs.Get()
-	log.Println("config", cfg)
 
 	db, err := internalsql.Connect(cfg.Database.DataSourceName)
 	if err != nil {
@@ -37,7 +36,7 @@ func main() {
 
 	membershipRepo := membershipRepo.NewRepository(db)
 
-	membershipService := membershipSvc.NewService(membershipRepo)
+	membershipService := membershipSvc.NewService(cfg, membershipRepo)
 
 	membershipHandler := memberships.NewHandler(r, membershipService)
 	membershipHandler.RegisterRoute()

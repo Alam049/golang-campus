@@ -8,7 +8,7 @@ import (
 )
 
 func CreateToken(id int64, username, secretKey string) (string, error) {
-	token := jwt.NewWithClaims(jwt.SigningMethodES256,
+	token := jwt.NewWithClaims(jwt.SigningMethodHS256,
 		jwt.MapClaims{
 			"id":       id,
 			"username": username,
