@@ -8,5 +8,4 @@ CREATE TABLE IF NOT EXISTS posts (
     updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_by LONGTEXT NOT NULL,
     created_by LONGTEXT NOT NULL
-    FOREIGN KEY (user_id) REFERENCES users(id)
 );
