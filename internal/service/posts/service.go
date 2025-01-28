@@ -13,6 +13,7 @@ type postRepository interface {
 	GetUserActivities(ctx context.Context, model posts.UserActivitiesModel) (*posts.UserActivitiesModel, error)
 	CreateUserActivities(ctx context.Context, model posts.UserActivitiesModel) error
 	UpdateUserActivities(ctx context.Context, model posts.UserActivitiesModel) error
+	GetAllPost(ctx context.Context, limit, offset int) (posts.GetAllPostResponse, error)
 }
 
 type service struct {
